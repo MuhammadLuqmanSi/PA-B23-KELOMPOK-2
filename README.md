@@ -51,14 +51,4 @@ from prettytable import PrettyTable
 
 import getpass
 
-try:
-    mydb = mysql.connector.connect(
-        host="sql6.freesqldatabase.com",
-        user="sql6701169",
-        password="Lh6evPczGK",
-        database="sql6701169"
-    )
-    mycursor = mydb.cursor()
-except Error as e:
-    print("Error saat menghubungkan ke database:", e)
-    exit()
+
