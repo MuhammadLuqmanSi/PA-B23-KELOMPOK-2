@@ -44,6 +44,10 @@ Sistem Informasi Perkotaan dan Pemukiman Berkelanjutan (SIP2B) dengan menganut k
 
 ### Struktur Project
 import mysql.connector
+
 from mysql.connector import Error
+
 from prettytable import PrettyTable
+
 import getpass
+
