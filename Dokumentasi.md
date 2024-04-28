@@ -29,3 +29,5 @@ Manfaat:
   - Memantau dan mengevaluasi kemajuan pembangunan perkotaan dan pemukiman yang berkelanjutan.
 
 Sistem Informasi Perkotaan dan Pemukiman Berkelanjutan (SIP2B) dengan menganut konsep kota komunitas berkelanjutan telah menjadi solusi yang inovatif untuk menghadapi permasalahan kota modern sekarang. SIP2B dirancang untuk mengatasi tantangan-tantangan tersebut dengan menyediakan sistem informasi yang terintegrasi dan mudah diakses tentang perkotaan dan pemukiman di Indonesia. SIP2B diharapkan dapat membantu para pemangku kepentingan dalam membuat kebijakan yang tepat dan efektif untuk pembangunan perkotaan dan pemukiman yang berkelanjutan.
+
+## struktur project
