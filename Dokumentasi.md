@@ -35,4 +35,6 @@ Sistem Informasi Perkotaan dan Pemukiman Berkelanjutan (SIP2B) dengan menganut k
 
 ## fitur 
 
+Beberapa library yang digunakan seperti 
+
 ## fungsional
