@@ -78,6 +78,8 @@ Super admin melakukan login dengan memilih menu 1. login dan memasukan username 
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/ae383e1d-836c-4f50-898a-584605609bc2)
 
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/267a1f34-bcbd-4a67-8f46-b22fa3e9cd5f)
+
 Super admin dapat mengelola database Admin, memmilih beberapa menu dan melakukan crud dengan memilih menu 1. Database Admin 
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/4b0d2b35-12db-4694-a028-69e4312f2ab8)
@@ -212,6 +214,9 @@ Dengan memilih menu 1. Tambah Data Proyek, Super admin dapat menambahkan Pemukim
 
 Dengan memilih menu 2. Hapus Data Proyek, Super Admin dapat menghapus Pemukiman dengan memasukan id dari Pemukiman yang ingin dihapus
 
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/c551b76e-0981-4cf5-a189-083c9aff18b5)
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/83017bdc-4cdf-4f40-89cd-6c29edc3220a)
 
 Dengan memilih menu 3. Perbaharui Data Proyek, Super Admin dapat memperbaharui data Pemukiman dengan memilih Pemukiman berdasarkan id kemudian memasukan nama proyek baru, id pemukiman baru, deskripsi proyek baru, jenis proyek baru, dana proyek baru, status proyek baru, id admin baru
 
@@ -247,9 +252,13 @@ Super Admin dapat kembali ke menu login dengan memilih menu 5. keluar
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/ef97084a-4a38-48dc-9f14-b27941a2c420)
 
-ADMIN Perkotaan  
+ADMIN PERKOTAAN  
 
 Admin Perkotaan melakukan login dengan memilih menu 1. login dan memasukan username dan password yang telah ada dan akan masuk ke menu admin, Jika Admin Proyek memilih keluar dengan menu 3 maka program akan terhenti 
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/27cd25ea-85ad-423b-9959-25810c98c019)
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/ad6c408e-b20f-46b3-b806-531489adc8db)
 
 Admin Perkotaan hanya dapat mengelola database perkotaan, memilih beberapa menu dan melakukan crud 
 
@@ -272,6 +281,9 @@ Dengan memilih menu 3. Perbaharui Data Perkotaan, Admin Perkotaan dapat memperba
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/d2eb9fbc-ab36-4c5d-b798-42de3a3e4c40)
 
 Dengan memilih menu 4. Tampilkan Data Perkotaan, Admin Perkotaan dapat memlihat database perkotaan dan memilih beberapa menu seperti :
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/b61e0735-41c5-4697-b215-77fe0dbe7fad)
+
 1. Tampilkan Data (urutkan berdasarkan ID - A-Z) : Admin Perkotaan dapat melihat tampilan data Perkotaan berdasarkan id yang diurutkan secara terurut atau ascending
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/0e5aabf6-44b3-4ac1-aa4f-204106f675fb)
@@ -284,15 +296,21 @@ Dengan memilih menu 4. Tampilkan Data Perkotaan, Admin Perkotaan dapat memlihat 
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/6a8a3b48-eace-446f-a2b3-a9bb7333582c)
 
-4. Keluar : Admin Proyek akan kembali ke menu sebelumnya
+4. Keluar : Admin Perkotaan akan kembali ke menu sebelumnya
 
-
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/b8d59a20-d486-45ab-a39f-4d26ae3f8020)
 
 Dengan memilih menu 5. Keluar, Admin Perkotaan dapar kembali ke menu login
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/013e300e-2c52-4959-8c7e-0de19bcbe986)
 
 ADMIN PEMUKIMAN 
 
 Admin Pemukiman melakukan login dengan memilih menu 1. login dan memasukan username dan password yang telah ada dan akan masuk ke menu admin, Jika Admin Proyek memilih keluar dengan menu 3 maka program akan terhenti 
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/f164fc77-1f49-4a53-ae1c-bc0943bbfab3)
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/24c12565-b7b4-4f27-88aa-3c43861f4f10)
 
 Admin Pemukiman hanya dapat mengelola database proyek, memilih beberapa menu dan melakukan crud
 
@@ -300,39 +318,91 @@ Dengan memilih menu 1. Tambah Data Pemukiman, Admin Pemukiman dapat menambahkan 
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/ff57e10a-34af-4d4d-bef1-9600271b6e54)
 
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/cceca242-4487-402e-ae8d-033d4cd94683)
+
 Dengan memilih menu 2. Hapus Data Pemukiman, Admin Pemukiman dapat menghapus Pemukiman dengan memasukan id dari Pemukiman yang ingin dihapus
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/9c1f88e3-ecb9-4d05-a7cf-cf27dd12c56d)
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/f250ef88-5af1-4728-a6f8-1885388980e6)
 
 Dengan memilih menu 3. Perbaharui Data Pemukiman, Admin Pemukiman dapat memperbaharui data Pemukiman dengan memilih Pemukiman berdasarkan id kemudian memasukan nama proyek baru, id pemukiman baru
 
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/ae956883-80a6-42a2-9d58-06e3dc6af6e8)
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/2af0afa2-a953-4715-8f98-39b3793ec8df)
+
 Dengan memilih menu 4. Tampilkan Data Pemukiman, Admin Pemukiman dapat memlihat database Pemukiman dan memilih beberapa menu seperti :
-1. Tampilkan Data (urutkan berdasarkan ID - A-Z) : Admin Pemukiman dapat melihat tampilan data Proyek berdasarkan id yang diurutkan secara terurut atau ascending
 
-2. Tampilkan Data (urutkan berdasarkan ID - Z-A) : Admin Pemukiman dapat melihat tampilan data Proyek berdasarkan id yang diurutkan secara terbalik atau ascending
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/f4834b64-94fd-48fc-8c82-fbab337fca6e)
 
-3. Cari Data (berdasarkan ID) : Admin Pemukiman dapat mencari data Proyek dengan memasukan id Proyek
+1. Tampilkan Data (urutkan berdasarkan ID - A-Z) : Admin Pemukiman dapat melihat tampilan data Pemukiman berdasarkan id yang diurutkan secara terurut atau ascending
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/4e484326-e790-4c29-8beb-01959c148688)
+
+2. Tampilkan Data (urutkan berdasarkan ID - Z-A) : Admin Pemukiman dapat melihat tampilan data Pemukiman berdasarkan id yang diurutkan secara terbalik atau ascending
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/e6c3a64e-a4ba-4a87-a77f-406ff09e52f1)
+
+3. Cari Data (berdasarkan ID) : Admin Pemukiman dapat mencari data Pemukiman dengan memasukan id Pemukiman
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/7b864dfb-7539-423c-b8a2-f1786472c7ff)
 
 4. Keluar: Admin Pemukiman dapat kembali ke menu sebelumnya 
 
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/923d3790-7aaf-4811-9b15-fc0f1a835612)
+
 Dengan memilih menu 5. Keluar, Admin Perkotaan dapar kembali ke menu login
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/07e0a554-552e-4078-bcd8-8e2a75622a12)
 
 ADMIN PROYEK 
 
 Admin Proyek melakukan login dengan memilih menu 1. login dan memasukan username dan password yang telah ada dan akan masuk ke menu admin, Jika Admin Proyek memilih keluar dengan menu 3 maka program akan terhenti 
 
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/cf656ed4-c8fb-4429-9fbe-de24d07ca147)
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/f398a97d-2950-4a04-a8d9-9a6abd77aee8)
+
 Admin Proyek hanya dapat mengelola database proyek, memilih beberapa menu dan melakukan crud
 Dengan memilih menu 1. Tambah Data Proyek, Admin Proyek dapat menambahkan Pemukiman baru dengan memasukan nama proyek, id pemukiman, deskripsi proyek, jenis proyek, dana proyek, status proyek, id admin
 
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/9efb7c35-98f5-455a-9fc6-088ca2d3ffba)
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/2e44783b-30df-405b-bd20-e024458f3cab)
+
 Dengan memilih menu 2. Hapus Data Proyek, Admin Proyek dapat menghapus Pemukiman dengan memasukan id dari Pemukiman yang ingin dihapus
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/c551b76e-0981-4cf5-a189-083c9aff18b5)
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/83017bdc-4cdf-4f40-89cd-6c29edc3220a)
 
 Dengan memilih menu 3. Perbaharui Data Proyek, Admin Proyek dapat memperbaharui data Pemukiman dengan memilih Pemukiman berdasarkan id kemudian memasukan nama proyek baru, id pemukiman baru, deskripsi proyek baru, jenis proyek baru, dana proyek baru, status proyek baru, id admin baru
 
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/f437ef7a-5d2a-43d9-a454-3e6d8e239874)
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/45bb1175-e252-42bd-9b9f-95886d6feecd)
+
 Dengan memilih menu 4. Tampilkan Data Proyek, Admin Proyek dapat memlihat database Pemukiman dan memilih beberapa menu seperti :
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/343174d7-3093-48f3-94d7-13da9ff35b4f)
+
 1. Tampilkan Data (urutkan berdasarkan ID - A-Z) : Admin Proyek dapat melihat tampilan data Proyek berdasarkan id yang diurutkan secara terurut atau ascending
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/5d664601-9392-468b-be51-0e01806642c2)
 
 2. Tampilkan Data (urutkan berdasarkan ID - Z-A) : Admin Proyek dapat melihat tampilan data Proyek berdasarkan id yang diurutkan secara terbalik atau ascending
 
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/29713187-20e9-4774-83ac-b77853260696)
+
 3. Cari Data (berdasarkan ID) : Admin Proyek dapat mencari data Proyek dengan memasukan id Proyek
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/117be863-32e5-4a85-9ec0-a771d981f564)
 
 4. Keluar : Admin Proyek dapat kembali ke menu sebelumnya 
 
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/a540981e-98ac-45ab-96dd-03b3092d4b28)
+
 Dengan memilih menu 5. Keluar, Admin Perkotaan dapar kembali ke menu login
+
+![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/9cf14b7e-d183-4863-8c64-5311c4cbda41)
