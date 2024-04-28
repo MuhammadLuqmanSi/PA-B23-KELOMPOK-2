@@ -300,7 +300,7 @@ Dengan memilih menu 4. Tampilkan Data Perkotaan, Admin Perkotaan dapat memlihat 
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/b8d59a20-d486-45ab-a39f-4d26ae3f8020)
 
-Dengan memilih menu 5. Keluar, Admin Perkotaan dapar kembali ke menu login
+Dengan memilih menu 5. Keluar, Admin Perkotaan dapat kembali ke menu login
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/013e300e-2c52-4959-8c7e-0de19bcbe986)
 
@@ -352,7 +352,7 @@ Dengan memilih menu 4. Tampilkan Data Pemukiman, Admin Pemukiman dapat memlihat 
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/923d3790-7aaf-4811-9b15-fc0f1a835612)
 
-Dengan memilih menu 5. Keluar, Admin Perkotaan dapar kembali ke menu login
+Dengan memilih menu 5. Keluar, Admin Pemukiman dapat kembali ke menu login
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/07e0a554-552e-4078-bcd8-8e2a75622a12)
 
@@ -403,6 +403,6 @@ Dengan memilih menu 4. Tampilkan Data Proyek, Admin Proyek dapat memlihat databa
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/a540981e-98ac-45ab-96dd-03b3092d4b28)
 
-Dengan memilih menu 5. Keluar, Admin Perkotaan dapar kembali ke menu login
+Dengan memilih menu 5. Keluar, Admin proyek dapat kembali ke menu login
 
 ![image](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/assets/144880422/9cf14b7e-d183-4863-8c64-5311c4cbda41)
