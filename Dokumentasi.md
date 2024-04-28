@@ -106,9 +106,9 @@ Beberapa fitur yang terdapat dalam program :
 
    - Database Perkotaan : Super admin dapat mengelola database perkotaan, memilih beberapa menu dan melakukan crud untuk
      - Tambah Data Perkotaan : Super admin dapat menambahkan perkotaan baru dengan memasukan nama kota, provinsi, jumlah penduduk, luas wilayah, indeks keberlanjutan dan id admin
-     - Perbaharui Data Perkotaan : 
-     - Tampilkan Data Perkotaan :
-     - Perbaharui Data Admin :
+     - Hapus Data Perkotaan : Super Admin dapat menghapus perkotaan dengan memasukan id dari perkotaan yang ingin dihapus 
+     - Perbaharui Data Perkotaan :
+     - Tampilkan Data Admin :
      - Keluar : 
    - Database Pemukiman
    - Database Proyek
