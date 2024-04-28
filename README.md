@@ -810,4 +810,25 @@ Sistem Informasi Perkotaan dan Pemukiman Berkelanjutan (SIP2B) dengan menganut k
 - break keluar dari loop utama, mengakhiri program.
 
 ### Fitur dan Fungsionalitas
+Fitur :
+
+Pada program ini menggunakan beberapa library seperti import mysql.connector, from mysql.connector import Error, import prettytable, import getpass
+- import mysql.connector: Baris ini mengimpor modul mysql.connector, yang menyediakan fungsi untuk terhubung dan berinteraksi dengan database MySQL di Python.
+- from mysql.connector import Error: Ini mengimpor kelas Error secara khusus dari modul mysql.connector. Kelas ini kemungkinan digunakan untuk menangani kesalahan yang mungkin terjadi selama operasi database.
+- import prettytable: Baris ini mengimpor modul prettytable, yang menawarkan alat untuk membuat tabel menarik secara visual untuk menampilkan data. Biasanya digunakan untuk menampilkan hasil query database dalam format yang jelas dan teratur.
+- import getpass: Baris ini mengimpor modul getpass, yang menyediakan cara aman untuk meminta kata sandi pengguna tanpa menampilkannya di konsol. Ini sering digunakan saat terhubung ke database yang membutuhkan autentikasi.
+
+Pada Program ini memiliki beberapa fitur 
+
+Fitur login 
+- login : User yang telah memiliki akun dapat memasukan username dan password 
+- Buat Akun Baru : User yang belum memiliki akun dapat membuat akun terlebih dahulu dengan membuat username dan password
+- keluar : Jika user memilih menu keluar maka program akan terhenti
+
+Fitur User
+1. Melihat database Perkotaan
+   - 
+3. Melihat database Pemukiman
+4. Melihat database Proyek 
+
 
