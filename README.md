@@ -309,4 +309,505 @@ Sistem Informasi Perkotaan dan Pemukiman Berkelanjutan (SIP2B) dengan menganut k
 
 ![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/17.png?raw=true)
 
+- Kode yang diberikan mendefinisikan sebuah fungsi bernama tambah_data_perkotaan yang kemungkinan digunakan untuk menambahkan data perkotaan baru ke database.
+- Kode ini menggunakan library eksternal untuk interaksi dengan database, kemungkinan library tersebut bernama MySQL (berdasarkan penggunaan mycursor dan mydb).
+- nama_kota = input("Masukkan Nama Kota: "): Baris ini meminta pengguna untuk memasukkan nama kota.
+- provinsi = input("Masukkan Provinsi: "): Baris ini meminta pengguna untuk memasukkan provinsi.
+- jumlah_penduduk = int(input("Masukkan Jumlah Penduduk: ")): Baris ini meminta pengguna untuk memasukkan jumlah penduduk. Input dikonversi ke integer menggunakan int() untuk memastikan format data valid.
+- luas_wilayah = None: Baris ini menginisialisasi variabel luas_wilayah dengan nilai None.
+- Loop while luas_wilayah is None:: Perulangan ini akan terus berjalan sampai nilai luas_wilayah valid dimasukkan.
+  - try:: Blok ini digunakan untuk mencoba konversi input luas wilayah.
+   - luas_wilayah = float(input("Masukkan Luas Wilayah: ")): Baris ini meminta pengguna untuk memasukkan luas wilayah. Input dikonversi ke float menggunakan float() untuk memastikan format data valid.
+  - except ValueError:: Blok ini dijalankan jika terjadi error ValueError saat konversi input.
+   - print("Luas wilayah harus berupa angka."): Baris ini mencetak pesan error kepada pengguna.
+- indeks_keberlanjutan_kota = int(input("Masukkan Indeks Keberlanjutan Kota: ")): Baris ini meminta pengguna untuk memasukkan indeks keberlanjutan kota. Input dikonversi ke integer menggunakan int() untuk memastikan format data valid.
+- id_admin = int(input("Masukkan ID Admin: ")): Baris ini meminta pengguna untuk memasukkan ID admin. Input dikonversi ke integer menggunakan int() untuk memastikan format data valid.
+- if jumlah_penduduk < 0 or luas_wilayah < 0:: Blok ini mengecek apakah jumlah penduduk atau luas wilayah kurang dari 0.
+  - raise ValueError("Jumlah penduduk dan luas wilayah tidak boleh negatif"): Baris ini memicu error ValueError jika salah satu kondisi terpenuhi. Pesan error yang akan ditampilkan juga dicantumkan.
+- query_check_admin = "SELECT id_admin FROM admin WHERE id_admin = {}".format(id_admin): Baris ini membuat query SQL untuk memeriksa apakah ID admin yang dimasukkan ada di tabel admin.
+- mycursor.execute(query_check_admin): Baris ini menjalankan query SQL yang dibuat sebelumnya.
+- result_admin = mycursor.fetchone(): Baris ini mengambil hasil pertama dari query (jika ada).
+- if not result_admin:: Blok ini dijalankan jika result_admin tidak ada (artinya ID admin tidak ditemukan).
+  - print("ID Admin tidak ditemukan dalam database."): Baris ini mencetak pesan error kepada pengguna.
+  - return: Kata kunci return digunakan untuk keluar dari fungsi tanpa menambahkan data.
+- query = f""": Baris ini memulai pembuatan string query SQL menggunakan f-string.
+- INSERT INTO perkotaan (nama_kota, provinsi, jumlah_penduduk, luas_wilayah, indeks_keberlanjutan_kota, id_admin) VALUES ('{nama_kota}', '{provinsi}', {jumlah_penduduk}, {luas_wilayah}, {indeks_keberlanjutan_kota}, {id_admin}): Bagian ini berisi query SQL untuk menambahkan data perkotaan baru ke tabel perkotaan. Nilai-nilai data diambil dari variabel yang sudah diinput sebelumnya.
+- """: Baris ini menutup pembuatan string query SQL.
+- mycursor.execute(query): Baris ini menjalankan query SQL yang telah dibuat sebelumnya. mycursor diasumsikan sebagai objek yang sudah terhubung ke database.
+- mydb.commit(): Baris ini melakukan komit perubahan ke database. Artinya, data perkotaan baru yang ditambahkan akan disimpan secara permanen.
+- Blok except ini menangani pengecualian ValueError. Pengecualian ini biasanya muncul ketika operasi matematika atau konversi data gagal karena input yang tidak valid.
+  - kode akan mencetak pesan "Data berhasil ditambahkan" ketika pengecualian ValueError tertangkap.
+- Blok except ini menangani pengecualian generik Error. Pengecualian ini lebih luas dan dapat menangkap berbagai jenis kesalahan, termasuk ValueError
+  - "Input tidak valid." - Pesan ini menunjukkan bahwa ada masalah dengan input data.
+  - "Error saat menambahkan data perkotaan:", e - Pesan ini menampilkan informasi detail tentang pengecualian yang tertangkap, termasuk objek pengecualian e. Objek ini berisi informasi tentang jenis kesalahan dan penyebabnya.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/18.png?raw=true)
+
+- Fungsi ini memiliki tujuan untuk menghapus data dari tabel perkotaan di database MySQL.
+- Fungsi meminta pengguna untuk memasukkan ID perkotaan yang ingin dihapus melalui input("Masukkan ID Perkotaan yang ingin dihapus: ").
+- Input ini kemudian diubah menjadi tipe data integer menggunakan int().
+- Sebuah string query SQL f"DELETE FROM perkotaan WHERE id_perkotaan = {id_perkotaan}" dibuat.
+- Query ini menggunakan placeholder {id_perkotaan} untuk memasukkan nilai ID perkotaan yang diperoleh dari input pengguna.
+- Query SQL dieksekusi menggunakan mycursor.execute(query).
+- Perubahan pada database kemudian dikomit menggunakan mydb.commit().
+- Jika proses penghapusan data berhasil, fungsi akan mencetak pesan "Data berhasil dihapus".
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+- Blok except ValueError menangani pengecualian ValueError yang mungkin terjadi jika input ID perkotaan bukan bilangan bulat yang valid.
+  - Dalam blok ini, fungsi akan mencetak pesan "Input tidak valid."
+- Blok except Error menangani pengecualian generik Error yang mungkin terjadi selama proses penghapusan data.
+  - Dalam blok ini, fungsi akan mencetak pesan "Error saat menghapus data perkotaan:" diikuti dengan objek pengecualian e.
+ 
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/19.png?raw=true)
+
+- Fungsi perbarui_data_perkotaan() ini dirancang untuk memperbarui data perkotaan di tabel perkotaan database MySQL
+- Fungsi meminta pengguna untuk memasukkan beberapa informasi baru untuk memperbarui data perkotaan, termasuk:
+  - id_perkotaan: ID perkotaan yang ingin diperbarui (harus bilangan bulat)
+  - nama_kota: Nama kota baru
+  - provinsi: Provinsi baru
+  - jumlah_penduduk: Jumlah penduduk baru (harus bilangan bulat)
+  - luas_wilayah: Luas wilayah baru (harus bilangan pecahan)
+  - indeks_keberlanjutan_kota: Indeks keberlanjutan kota baru (harus bilangan bulat)
+  - id_admin: ID admin yang terkait dengan perkotaan (harus bilangan bulat)
+- Fungsi menggunakan loop while untuk memvalidasi input luas_wilayah.
+  - Loop ini terus berjalan sampai pengguna memasukkan nilai numerik yang valid (bilangan pecahan).
+  - Jika input tidak valid, pesan "Luas wilayah harus berupa angka." akan dicetak.
+- Fungsi juga melakukan validasi untuk memastikan jumlah_penduduk dan luas_wilayah tidak negatif.
+  - Jika salah satu nilainya negatif, pengecualian ValueError akan dibangkitkan.
+- Fungsi menjalankan query SQL SELECT id_admin FROM admin WHERE id_admin = {id_admin} untuk memeriksa apakah ID Admin yang dimasukkan ada di tabel admin.
+  - Jika ID Admin tidak ditemukan, pesan "ID Admin tidak ditemukan dalam database." akan dicetak dan fungsi akan dihentikan.
+- Fungsi membangun string query SQL UPDATE untuk memperbarui data perkotaan di tabel perkotaan.
+  - Query ini menggunakan placeholder untuk memasukkan nilai-nilai baru yang diperoleh dari input pengguna.
+- Query dijalankan menggunakan mycursor.execute(query).
+- Fungsi memeriksa nilai mycursor.rowcount untuk mengetahui apakah data berhasil diperbarui.
+  - Jika rowcount sama dengan 0, berarti tidak ada data yang diperbarui, dan pesan "ID Perkotaan atau ID Admin tidak ditemukan." akan dicetak.
+  - Jika rowcount lebih besar dari 0, berarti data berhasil diperbarui, dan pesan "Data berhasil diperbarui" akan dicetak.
+- Terakhir, perubahan pada database dikomit menggunakan mydb.commit().
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+  - Blok except ValueError menangani pengecualian ValueError yang mungkin terjadi selama validasi input.
+  - Pesan informatif akan dicetak untuk membantu pengguna memahami jenis kesalahan yang terjadi.
+- Blok except Exception menangani semua jenis pengecualian lain yang mungkin terjadi.
+  - Pesan generik "Terjadi kesalahan:" akan dicetak, diikuti dengan objek pengecualian e untuk informasi lebih lanjut.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/20.png?raw=true)
+
+- Fungsi read_pemukiman() ini dirancang untuk menampilkan dan mencari data pemukiman dari database MySQL.
+- Fungsi menggunakan mycursor.execute("SELECT * FROM pemukiman") untuk mengambil semua data dari tabel pemukiman.
+- Hasil query disimpan dalam variabel myresult.
+- Data kemudian diubah menjadi daftar yang dapat diakses menggunakan data_list = [] dan for data in myresult: data_list.append(data).
+- Fungsi menampilkan menu utama dengan opsi berikut:
+  - Tampilkan Data (urutkan berdasarkan ID - A-Z)
+  - Tampilkan Data (urutkan berdasarkan ID - Z-A)
+  - Cari Data (berdasarkan ID)
+  - Kembali ke Menu Utama
+- Fungsi menggunakan loop while True untuk terus menampilkan menu utama dan memproses pilihan pengguna.
+- Pengguna memasukkan pilihannya melalui pilihan = input("Masukkan pilihan Anda: ").
+- Jika pilihan adalah "1" atau "2":
+   - "1": Urutkan menaik (A-Z)
+   - "2": Urutkan menurun (Z-A)
+  - Fungsi menggunakan quick_sort() untuk mengurutkan data.
+  - Data yang diurutkan kemudian diubah menjadi objek LinkedList menggunakan ll = LinkedList().
+  - Data ditampilkan menggunakan ll.display_pemukiman().
+- Jika pilihan adalah "3":
+  - Pengguna memasukkan ID yang ingin dicari melalui id_to_search = int(input("Masukkan ID yang ingin dicari: ")).
+  - Fungsi menggunakan jump_search() untuk mencari data dengan ID yang diberikan.
+  - Jika data ditemukan:
+   - Data ditampilkan dalam tabel yang rapi menggunakan PrettyTable.
+  - Jika data tidak ditemukan, pesan "Data tidak ditemukan." akan dicetak.
+- Jika pilihan adalah "4":
+  - Loop while True diakhiri dengan break, yang membawa pengguna kembali ke menu utama program.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+  - Blok except ValueError menangani pengecualian ValueError yang mungkin terjadi saat membaca input pengguna.
+   - Pesan "Input tidak valid." akan dicetak.
+  - Blok except Error menangani semua jenis pengecualian lain yang mungkin terjadi.
+   - Pesan generik "Error saat membaca data pemukiman:" akan dicetak, diikuti dengan objek pengecualian e untuk informasi lebih lanjut.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/21.png?raw=true)
+
+- Fungsi tambah_data_pemukiman() ini dirancang untuk menambahkan data pemukiman baru ke database MySQL.
+- ungsi meminta pengguna untuk memasukkan informasi berikut:
+  - nama_pemukiman: Nama pemukiman (string)
+  - id_perkotaan: ID perkotaan yang terkait dengan pemukiman (integer)
+  - jenis_pemukiman: Jenis pemukiman (formal atau informal, string)
+  - akses_air_bersih: Akses air bersih (ya atau tidak, string)
+  - akses_sanitasi_layak: Akses sanitasi layak (ya atau tidak, string)
+  - id_admin: ID admin yang bertanggung jawab atas pemukiman (integer)
+- Fungsi menjalankan query SQL SELECT id_perkotaan FROM perkotaan WHERE id_perkotaan = {id_perkotaan} untuk memeriksa apakah ID Perkotaan yang dimasukkan ada di tabel perkotaan.
+  - Jika ID Perkotaan tidak ditemukan, pesan "ID Perkotaan tidak ditemukan dalam database." akan dicetak dan fungsi akan dihentikan.
+- Fungsi menjalankan query SQL serupa SELECT id_admin FROM admin WHERE id_admin = {id_admin} untuk memeriksa apakah ID Admin yang dimasukkan ada di tabel admin.
+  - Jika ID Admin tidak ditemukan, pesan "ID Admin tidak ditemukan dalam database." akan dicetak dan fungsi akan dihentikan.
+- Fungsi membangun string query SQL INSERT INTO untuk menambahkan data pemukiman baru ke tabel pemukiman.
+  - Query menggunakan placeholder untuk memasukkan nilai-nilai yang diperoleh dari input pengguna.
+- Query dijalankan menggunakan mycursor.execute(query_insert_pemukiman).
+- Fungsi menggunakan mydb.commit() untuk mengkomit perubahan ke database.
+- Fungsi menggunakan mydb.commit() untuk mengkomit perubahan ke database.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+  - Blok except ValueError menangani pengecualian ValueError yang mungkin terjadi selama validasi input.
+  - Pesan "Input tidak valid:" beserta objek pengecualian e akan dicetak untuk membantu pengguna memahami jenis kesalahan yang terjadi.
+- Blok except Error menangani semua jenis pengecualian lain yang mungkin terjadi.
+  - Pesan generik "Error saat menambahkan data pemukiman:" beserta objek pengecualian e akan dicetak untuk informasi lebih lanjut.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/22.png?raw=true)
+
+- Fungsi hapus_data_pemukiman() ini dirancang untuk menghapus data pemukiman dari database MySQL berdasarkan ID pemukiman yang diberikan.
+- Fungsi meminta pengguna untuk memasukkan ID pemukiman yang ingin dihapus melalui id_pemukiman = int(input("Masukkan ID Pemukiman yang ingin dihapus: ")).
+- Input diubah menjadi tipe data integer menggunakan int().
+- Fungsi membangun string query SQL DELETE untuk menghapus data pemukiman dari tabel pemukiman.
+  - Query menggunakan placeholder {id_pemukiman} untuk memasukkan nilai ID pemukiman yang diperoleh dari input pengguna.
+- Query dijalankan menggunakan mycursor.execute(query).
+- Perubahan pada database kemudian dikomit menggunakan mydb.commit().
+- Jika proses penghapusan data berhasil, pesan "Data berhasil dihapus" akan dicetak.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+  - Blok except ValueError menangani pengecualian ValueError yang mungkin terjadi jika input ID pemukiman bukan bilangan bulat yang valid.
+  - Pesan "Input tidak valid." akan dicetak.
+- Blok except Error menangani semua jenis pengecualian lain yang mungkin terjadi selama proses penghapusan data.
+  - Pesan generik "Error saat menghapus data pemukiman:" beserta objek pengecualian e akan dicetak untuk informasi lebih lanjut.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/23.png?raw=true)
+
+- Fungsi perbarui_data_pemukiman() ini dirancang untuk memperbarui data pemukiman di database MySQL.
+- Fungsi meminta pengguna untuk memasukkan informasi berikut untuk memperbarui data pemukiman:
+  - id_pemukiman: ID pemukiman yang ingin diperbarui (harus bilangan bulat)
+  - nama_pemukiman: Nama pemukiman baru
+  - id_perkotaan: ID perkotaan baru (harus bilangan bulat)
+  - jenis_pemukiman: Jenis pemukiman baru
+  - akses_air_bersih: Akses air bersih baru
+  - akses_sanitasi_layak: Akses sanitasi layak baru
+  - id_admin: ID admin yang terkait dengan pemukiman (harus bilangan bulat)
+- Fungsi menjalankan query SQL SELECT id_perkotaan FROM perkotaan WHERE id_perkotaan = {id_perkotaan} untuk memeriksa apakah ID Perkotaan yang dimasukkan ada di tabel perkotaan.
+  - Jika ID Perkotaan tidak ditemukan, pesan "ID Perkotaan tidak ditemukan dalam database." akan dicetak dan fungsi akan dihentikan.
+- Fungsi menjalankan query SQL serupa SELECT id_admin FROM admin WHERE id_admin = {id_admin} untuk memeriksa apakah ID Admin yang dimasukkan ada di tabel admin.
+  - Jika ID Admin tidak ditemukan, pesan "ID Admin tidak ditemukan dalam database." akan dicetak dan fungsi akan dihentikan.
+- Fungsi membangun string query SQL UPDATE untuk memperbarui data pemukiman di tabel pemukiman.
+  - Query menggunakan placeholder untuk memasukkan nilai-nilai baru yang diperoleh dari input pengguna.
+- Query dijalankan menggunakan mycursor.execute(query).
+- Fungsi memeriksa nilai mycursor.rowcount untuk mengetahui apakah data berhasil diperbarui.
+  - Jika rowcount sama dengan 0, berarti tidak ada data yang diperbarui, dan pesan "ID Pemukiman tidak ditemukan." akan dicetak.
+  - Jika rowcount lebih besar dari 0, berarti data berhasil diperbarui, dan pesan "Data berhasil diperbarui" akan dicetak.
+- Terakhir, perubahan pada database dikomit menggunakan mydb.commit().
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+  - Blok except ValueError menangani pengecualian ValueError yang mungkin terjadi selama validasi input ID pemukiman dan ID perkotaan.
+  - Pesan informatif "Pastikan input berupa bilangan bulat untuk ID pemukiman dan ID perkotaan." akan dicetak untuk membantu pengguna memahami jenis kesalahan yang terjadi.
+  - Blok except Exception menangani semua jenis pengecualian lain yang mungkin terjadi.
+  - Pesan generik "Terjadi kesalahan:", beserta objek pengecualian e akan dicetak untuk informasi lebih lanjut.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/24.png?raw=true)
+
+- Fungsi read_proyek() ini dirancang untuk menampilkan dan mencari data proyek dari database MySQL.
+- Fungsi menggunakan mycursor.execute("SELECT * FROM proyek") untuk mengambil semua data dari tabel proyek.
+- Hasil query disimpan dalam variabel myresult.
+- Data kemudian diubah menjadi daftar yang dapat diakses menggunakan data_list = [] dan for data in myresult: data_list.append(data).
+- Fungsi menampilkan menu utama dengan opsi berikut:
+  - Tampilkan Data (urutkan berdasarkan ID - A-Z)
+  - Tampilkan Data (urutkan berdasarkan ID - Z-A)
+  - Cari Data (berdasarkan ID)
+  - Kembali ke Menu Utama
+- Fungsi menggunakan loop while True untuk terus menampilkan menu utama dan memproses pilihan pengguna.
+- Pengguna memasukkan pilihannya melalui pilihan = input("Masukkan pilihan Anda: ").
+- Jika pilihan adalah "1" atau "2":
+  - Data diurutkan berdasarkan ID:
+  - "1": Urutkan menaik (A-Z)
+  - "2": Urutkan menurun (Z-A)
+  - Fungsi menggunakan quick_sort() untuk mengurutkan data.
+  - Data yang diurutkan kemudian diubah menjadi objek LinkedList menggunakan ll = LinkedList().
+  - Data ditampilkan menggunakan ll.display_proyek().
+- Jika pilihan adalah "3":
+  - Pengguna memasukkan ID yang ingin dicari melalui id_to_search = int(input("Masukkan ID yang ingin dicari: ")).
+  - Fungsi menggunakan jump_search() untuk mencari data dengan ID yang diberikan.
+  - Jika data ditemukan:
+  - Data ditampilkan dalam tabel yang rapi menggunakan PrettyTable.
+  - Jika data tidak ditemukan, pesan "Data tidak ditemukan." akan dicetak.
+- Jika pilihan adalah "4":
+  - Loop while True diakhiri dengan break, yang membawa pengguna kembali ke menu utama program.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+  - Blok except ValueError menangani pengecualian ValueError yang mungkin terjadi saat membaca input pengguna.
+  - Pesan "Input tidak valid." akan dicetak.
+- Blok except Error menangani semua jenis pengecualian lain yang mungkin terjadi.
+  - Pesan generik "Error saat membaca data proyek:" beserta objek pengecualian e akan dicetak untuk informasi lebih lanjut.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/25.png?raw=true)
+
+- Fungsi tambah_data_proyek() dirancang untuk menambahkan data proyek baru ke database MySQL.
+- Fungsi meminta pengguna untuk memasukkan informasi berikut untuk proyek baru:
+  - nama_proyek: Nama proyek (string)
+  - id_pemukiman: ID pemukiman terkait proyek (integer)
+  - deskripsi_proyek: Deskripsi singkat tentang proyek (string)
+  - jenis_proyek: Jenis proyek (string)
+  - dana_proyek: Anggaran proyek (integer)
+  - status_proyek: Status proyek saat ini (string)
+  - id_admin: ID admin yang bertanggung jawab atas proyek (integer)
+-  Fungsi menggunakan if dana_proyek < 0: untuk memeriksa apakah nilai dana_proyek negatif.
+  - Jika nilai negatif, pengecualian ValueError dengan pesan "Dana proyek tidak boleh negatif" akan dibuat dan diangkat.
+- Fungsi menjalankan query SQL SELECT id_pemukiman FROM pemukiman WHERE id_pemukiman = {id_pemukiman} untuk memeriksa apakah ID Pemukiman yang dimasukkan ada di tabel pemukiman.
+  - Jika ID Pemukiman tidak ditemukan, pesan "ID pemukiman tidak ditemukan dalam database." akan dicetak dan fungsi akan dihentikan.
+- Fungsi menjalankan query SQL serupa SELECT id_admin FROM admin WHERE id_admin = {id_admin} untuk memeriksa apakah ID Admin yang dimasukkan ada di tabel admin.
+  - Jika ID Admin tidak ditemukan, pesan "ID admin tidak ditemukan dalam database." akan dicetak dan fungsi akan dihentikan.
+- Fungsi membangun string query SQL INSERT INTO untuk menambahkan data proyek baru ke tabel proyek.
+  - Query menggunakan placeholder untuk memasukkan nilai-nilai yang diperoleh dari input pengguna.
+- Query dijalankan menggunakan mycursor.execute(query).
+- Fungsi menggunakan mydb.commit() untuk mengkomit perubahan ke database.
+- Jika proses insert data berhasil, pesan "Data berhasil ditambahkan" akan dicetak.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+  - Blok except ValueError menangani pengecualian ValueError yang mungkin terjadi selama validasi input atau jika ID Pemukiman/Admin tidak valid.
+  - Pesan "Input tidak valid." akan dicetak.
+  - Blok except Error menangani semua jenis pengecualian lain yang mungkin terjadi selama proses insert data.
+  - Pesan generik "Error saat menambahkan data proyek:" beserta objek pengecualian e akan dicetak untuk informasi lebih lanjut.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/26.png?raw=true)
+
+- Fungsi hapus_data_proyek() dirancang untuk menghapus data proyek dari database MySQL berdasarkan ID proyek yang diberikan.
+- Fungsi meminta pengguna untuk memasukkan ID proyek yang ingin dihapus melalui id_proyek = int(input("Masukkan ID Proyek yang ingin dihapus: ")).
+- Input diubah menjadi tipe data integer menggunakan int().
+- Fungsi membangun string query SQL DELETE untuk menghapus data proyek dari tabel proyek.
+  - Query menggunakan placeholder {id_proyek} untuk memasukkan nilai ID proyek yang diperoleh dari input pengguna.
+- Query dijalankan menggunakan mycursor.execute(query).
+- Perubahan pada database kemudian dikomit menggunakan mydb.commit().
+- Jika proses penghapusan data berhasil, pesan "Data berhasil dihapus" akan dicetak.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+  - Blok except ValueError menangani pengecualian ValueError yang mungkin terjadi jika input ID proyek bukan bilangan bulat yang valid.
+  - Pesan "Input tidak valid." akan dicetak.
+  - Blok except Error menangani semua jenis pengecualian lain yang mungkin terjadi selama proses penghapusan data.
+  - Pesan generik "Error saat menghapus data proyek:" beserta objek pengecualian e akan dicetak untuk informasi lebih lanjut.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/27.png?raw=true)
+
+- Fungsi perbarui_data_proyek() dirancang untuk memperbarui data proyek di database MySQL.
+- Fungsi meminta pengguna untuk memasukkan informasi berikut untuk memperbarui data proyek:
+  - id_proyek: ID proyek yang ingin diperbarui (harus bilangan bulat)
+  - nama_proyek: Nama proyek baru
+  - id_pemukiman: ID pemukiman baru (harus bilangan bulat)
+  - deskripsi_proyek: Deskripsi singkat baru tentang proyek
+  - jenis_proyek: Jenis proyek baru
+  - dana_proyek: Anggaran proyek baru (harus bilangan bulat)
+  - status_proyek: Status proyek baru
+  - id_admin: ID admin yang bertanggung jawab atas proyek (harus bilangan bulat)
+- Fungsi menggunakan if dana_proyek < 0: untuk memeriksa apakah nilai dana_proyek negatif.
+  - Jika nilai negatif, pengecualian ValueError dengan pesan "Dana proyek tidak boleh negatif" akan dibuat dan diangkat.
+- Fungsi menjalankan query SQL SELECT id_pemukiman FROM pemukiman WHERE id_pemukiman = {id_pemukiman} untuk memeriksa apakah ID Pemukiman yang dimasukkan ada di tabel pemukiman.
+  - Jika ID Pemukiman tidak ditemukan, pesan "ID pemukiman tidak ditemukan dalam database." akan dicetak dan fungsi akan dihentikan.
+- Fungsi menjalankan query SQL serupa SELECT id_admin FROM admin WHERE id_admin = {id_admin} untuk memeriksa apakah ID Admin yang dimasukkan ada di tabel admin.
+  - Jika ID Admin tidak ditemukan, pesan "ID admin tidak ditemukan dalam database." akan dicetak dan fungsi akan dihentikan
+- Fungsi membangun string query SQL UPDATE untuk memperbarui data proyek di tabel proyek.
+  - Query menggunakan placeholder untuk memasukkan nilai-nilai baru yang diperoleh dari input pengguna.
+- Query dijalankan menggunakan mycursor.execute(query).
+- Fungsi memeriksa nilai mycursor.rowcount untuk mengetahui apakah data berhasil diperbarui.
+  - Jika rowcount sama dengan 0, berarti tidak ada data yang diperbarui, dan pesan "ID Proyek tidak ditemukan." akan dicetak.
+  - Jika rowcount lebih besar dari 0, berarti data berhasil diperbarui, dan pesan "Data berhasil diperbarui" akan dicetak.
+- Terakhir, perubahan pada database dikomit menggunakan mydb.commit().
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+  - Blok except ValueError menangani pengecualian ValueError yang mungkin terjadi selama validasi input ID proyek, ID pemukiman, dan dana proyek.
+  - Pesan informatif "Pastikan input berupa bilangan bulat untuk ID proyek, ID pemukiman, dan dana proyek." akan dicetak untuk membantu pengguna memahami jenis kesalahan yang terjadi.
+  - Blok except Exception menangani semua jenis pengecualian lain yang mungkin terjadi.
+  - Pesan generik "Terjadi kesalahan:", beserta objek pengecualian e akan dicetak untuk informasi lebih lanjut.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/28.png?raw=true)
+
+- fungsi menu_utama_admin() ini dirancang untuk menampilkan menu utama bagi administrator database dan menangani pilihan pengguna.
+- Fungsi menggunakan loop while True untuk menampilkan menu utama secara berulang sampai pengguna memilih untuk keluar.
+- Di dalam loop, fungsi menggunakan perintah print untuk menampilkan teks yang membentuk menu utama, termasuk judul, pilihan yang tersedia, dan instruksi untuk memasukkan pilihan.
+- Fungsi menggunakan variabel pilihan = input("Masukkan pilihan Anda: ") untuk menampung input pengguna.
+- Pernyataan if bersarang digunakan untuk mengevaluasi pilihan pengguna dan menjalankan fungsi yang sesuai:
+  - Jika pilihan == "1": Memanggil fungsi tambah_data_admin() untuk menambahkan data admin baru.
+  - Jika pilihan == "2": Memanggil fungsi hapus_data_admin() untuk menghapus data admin.
+  - Jika pilihan == "3": Memanggil fungsi perbarui_data_admin() untuk memperbarui data admin.
+  - Jika pilihan == "4": Memanggil fungsi read_admin() untuk menampilkan data admin.
+  - Jika pilihan == "5": Mencetak pesan "Terima kasih!" dan keluar dari loop while True, mengakhiri program.
+  - Jika pilihan tidak valid (bukan salah satu opsi yang tersedia), pesan "Pilihan tidak valid. Silakan pilih kembali." akan dicetak.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+- Blok except (EOFError, KeyboardInterrupt) menangani dua jenis pengecualian:
+  - EOFError: Muncul ketika pengguna menekan Ctrl+D (Windows) atau Ctrl+Z (Linux) untuk mengakhiri input.
+  - KeyboardInterrupt: Muncul ketika pengguna menekan Ctrl+C (Windows/Linux) untuk menghentikan program secara paksa.
+- Di dalam blok except, pesan "Program keluar." akan dicetak dan loop while True akan dihentikan, mengakhiri program.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/29.png?raw=true)
+
+- Fungsi menu_utama_perkotaan() ini dirancang untuk menampilkan menu utama bagi pengelola database perkotaan dan menangani pilihan pengguna.
+- Fungsi menggunakan loop while True untuk menampilkan menu utama secara berulang sampai pengguna memilih untuk keluar.
+- Di dalam loop, fungsi menggunakan perintah print untuk menampilkan teks yang membentuk menu utama, termasuk judul, pilihan yang tersedia, dan instruksi untuk memasukkan pilihan.
+- Fungsi menggunakan variabel pilihan = input("Masukkan pilihan Anda: ") untuk menampung input pengguna.
+- Pernyataan if bersarang digunakan untuk mengevaluasi pilihan pengguna dan menjalankan fungsi yang sesuai:
+  - Jika pilihan == "1": Memanggil fungsi tambah_data_perkotaan() untuk menambahkan data perkotaan baru.
+  - Jika pilihan == "2": Memanggil fungsi hapus_data_perkotaan() untuk menghapus data perkotaan.
+  - Jika pilihan == "3": Memanggil fungsi perbarui_data_perkotaan() untuk memperbarui data perkotaan.
+  - Jika pilihan == "4": Memanggil fungsi read_perkotaan() untuk menampilkan data perkotaan.
+  - Jika pilihan == "5": Mencetak pesan "Terima kasih!" dan keluar dari loop while True, mengakhiri program.
+  - Jika pilihan tidak valid (bukan salah satu opsi yang tersedia), pesan "Pilihan tidak valid. Silakan pilih kembali." akan dicetak.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+- Blok except (EOFError, KeyboardInterrupt) menangani dua jenis pengecualian:
+  - EOFError: Muncul ketika pengguna menekan Ctrl+D (Windows) atau Ctrl+Z (Linux) untuk mengakhiri input.
+  - KeyboardInterrupt: Muncul ketika pengguna menekan Ctrl+C (Windows/Linux) untuk menghentikan program secara paksa.
+- Di dalam blok except, pesan "Program keluar." akan dicetak dan loop while True akan dihentikan, mengakhiri program.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/30.png?raw=true)
+
+- Fungsi menu_utama_pemukiman() dirancang untuk menampilkan menu utama bagi pengelola database pemukiman dan menangani pilihan pengguna.
+- Fungsi menggunakan loop while True untuk menampilkan menu utama secara berulang sampai pengguna memilih untuk keluar.
+- Di dalam loop, fungsi menggunakan perintah print untuk menampilkan teks yang membentuk menu utama, termasuk judul, pilihan yang tersedia, dan instruksi untuk memasukkan pilihan.
+- Fungsi menggunakan variabel pilihan = input("Masukkan pilihan Anda: ") untuk menampung input pengguna.
+- Pernyataan if bersarang digunakan untuk mengevaluasi pilihan pengguna dan menjalankan fungsi yang sesuai:
+  - Jika pilihan == "1": Memanggil fungsi tambah_data_pemukiman() untuk menambahkan data pemukiman baru.
+  - Jika pilihan == "2": Memanggil fungsi hapus_data_pemukiman() untuk menghapus data pemukiman.
+  - Jika pilihan == "3": Memanggil fungsi perbarui_data_pemukiman() untuk memperbarui data pemukiman.
+  - Jika pilihan == "4": Memanggil fungsi read_pemukiman() untuk menampilkan data pemukiman.
+  - Jika pilihan == "5": Mencetak pesan "Terima kasih!" dan keluar dari loop while True, mengakhiri program.
+  - Jika pilihan tidak valid (bukan salah satu opsi yang tersedia), pesan "Pilihan tidak valid. Silakan pilih kembali." akan dicetak.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+- Blok except (EOFError, KeyboardInterrupt) menangani dua jenis pengecualian:
+  - EOFError: Muncul ketika pengguna menekan Ctrl+D (Windows) atau Ctrl+Z (Linux) untuk mengakhiri input.
+  - KeyboardInterrupt: Muncul ketika pengguna menekan Ctrl+C (Windows/Linux) untuk menghentikan program secara paksa.
+- Di dalam blok except, pesan "Program keluar." akan dicetak dan loop while True akan dihentikan, mengakhiri program.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/31.png?raw=true)
+
+- Fungsi menu_utama_proyek() dirancang untuk menampilkan menu utama bagi pengelola database proyek dan menangani pilihan pengguna.
+- Fungsi menggunakan loop while True untuk menampilkan menu utama secara berulang sampai pengguna memilih untuk keluar.
+- Di dalam loop, fungsi menggunakan perintah print untuk menampilkan teks yang membentuk menu utama, termasuk judul, pilihan yang tersedia, dan instruksi untuk memasukkan pilihan.
+- Fungsi menggunakan variabel pilihan = input("Masukkan pilihan Anda: ") untuk menampung input pengguna.
+- Pernyataan if bersarang digunakan untuk mengevaluasi pilihan pengguna dan menjalankan fungsi yang sesuai:
+  - Jika pilihan == "1": Memanggil fungsi tambah_data_proyek() untuk menambahkan data proyek baru.
+  - Jika pilihan == "2": Memanggil fungsi hapus_data_proyek() untuk menghapus data proyek.
+  - Jika pilihan == "3": Memanggil fungsi perbarui_data_proyek() untuk memperbarui data proyek.
+  - Jika pilihan == "4": Memanggil fungsi read_proyek() untuk menampilkan data proyek.
+  - Jika pilihan == "5": Mencetak pesan "Terima kasih!" dan keluar dari loop while True, mengakhiri program.
+  - Jika pilihan tidak valid (bukan salah satu opsi yang tersedia), pesan "Pilihan tidak valid. Silakan pilih kembali." akan dicetak.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+- Blok except (EOFError, KeyboardInterrupt) menangani dua jenis pengecualian:
+  - EOFError: Muncul ketika pengguna menekan Ctrl+D (Windows) atau Ctrl+Z (Linux) untuk mengakhiri input.
+  - KeyboardInterrupt: Muncul ketika pengguna menekan Ctrl+C (Windows/Linux) untuk menghentikan program secara paksa.
+- Di dalam blok except, pesan "Program keluar." akan dicetak dan loop while True akan dihentikan, mengakhiri program.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/32.png?raw=true)
+
+- Fungsi menu_utama_SUPER_ADMIN() dirancang untuk menyediakan antarmuka bagi SUPER_ADMIN untuk mengelola berbagai database dalam aplikasi.
+- Fungsi menggunakan loop while True untuk menampilkan menu utama secara berulang sampai SUPER_ADMIN memilih untuk keluar.
+- Di dalam loop, fungsi menggunakan perintah print untuk menampilkan teks yang membentuk menu utama, termasuk:
+  - Ucapan selamat datang dengan nama pengguna SUPER_ADMIN.
+  - Judul menu.
+  - Daftar pilihan menu (database admin, database perkotaan, database pemukiman, database proyek, dan keluar).
+  - Instruksi untuk memasukkan pilihan.
+- Fungsi menggunakan variabel pilihan = input("Masukkan pilihan Anda: ") untuk menampung input SUPER_ADMIN.
+- Pernyataan if bersarang digunakan untuk mengevaluasi pilihan SUPER_ADMIN dan menjalankan fungsi yang sesuai:
+  - Jika pilihan == "1": Memanggil fungsi menu_utama_admin() untuk menampilkan menu admin dan menangani pilihan terkait pengelolaan data admin.
+  - Jika pilihan == "2": Memanggil fungsi menu_utama_perkotaan() untuk menampilkan menu perkotaan dan menangani pilihan terkait pengelolaan data perkotaan.
+  - Jika pilihan == "3": Memanggil fungsi menu_utama_pemukiman() untuk menampilkan menu pemukiman dan menangani pilihan terkait pengelolaan data pemukiman.
+  - Jika pilihan == "4": Memanggil fungsi menu_utama_proyek() untuk menampilkan menu proyek dan menangani pilihan terkait pengelolaan data proyek.
+  - Jika pilihan == "5": Mencetak pesan "Terima kasih!" dan keluar dari loop while True, mengakhiri program.
+  - Jika pilihan tidak valid (bukan salah satu opsi yang tersedia), pesan "Pilihan tidak valid. Silakan pilih kembali." akan dicetak.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+- Blok except (EOFError, KeyboardInterrupt) menangani dua jenis pengecualian:
+  - EOFError: Muncul ketika SUPER_ADMIN menekan Ctrl+D (Windows) atau Ctrl+Z (Linux) untuk mengakhiri input.
+  - KeyboardInterrupt: Muncul ketika SUPER_ADMIN menekan Ctrl+C (Windows/Linux) untuk menghentikan program secara paksa.
+- Di dalam blok except, pesan "Program keluar." akan dicetak dan loop while True akan dihentikan, mengakhiri program.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/33.png?raw=true)
+
+- Fungsi menu_user() dirancang untuk menyediakan antarmuka bagi pengguna aplikasi untuk mengakses dan melihat data dari berbagai database.
+- Fungsi menggunakan loop while True untuk menampilkan menu utama secara berulang sampai pengguna memilih untuk keluar.
+- Di dalam loop, fungsi menggunakan perintah print untuk menampilkan teks yang membentuk menu utama, termasuk:
+  - Ucapan selamat datang dengan nama pengguna.
+  - Judul menu.
+  - Daftar pilihan menu (database perkotaan, database pemukiman, database proyek, dan keluar).
+  - Instruksi untuk memasukkan pilihan.
+- Fungsi menggunakan variabel pilihan = input("Masukkan pilihan Anda: ") untuk menampung input pengguna.
+- Pernyataan if bersarang digunakan untuk mengevaluasi pilihan pengguna dan menjalankan fungsi yang sesuai:
+  - jika pilihan == "1": Memanggil fungsi read_perkotaan() untuk menampilkan data dari database perkotaan.
+  - Jika pilihan == "2": Memanggil fungsi read_pemukiman() untuk menampilkan data dari database pemukiman.
+  - Jika pilihan == "3": Memanggil fungsi read_proyek() untuk menampilkan data dari database proyek.
+  - Jika pilihan == "4": Mencetak pesan "Terima kasih!" dan keluar dari loop while True, mengakhiri program.
+  - Jika pilihan tidak valid (bukan salah satu opsi yang tersedia), pesan "Pilihan tidak valid. Silakan pilih kembali." akan dicetak.
+- Blok try digunakan untuk membungkus bagian kode yang berpotensi menimbulkan kesalahan.
+- Blok except (EOFError, KeyboardInterrupt) menangani dua jenis pengecualian:
+  - EOFError: Muncul ketika pengguna menekan Ctrl+D (Windows) atau Ctrl+Z (Linux) untuk mengakhiri input.
+  - KeyboardInterrupt: Muncul ketika pengguna menekan Ctrl+C (Windows/Linux) untuk menghentikan program secara paksa.
+- Di dalam blok except, pesan "Program keluar." akan dicetak dan loop while True akan dihentikan, mengakhiri program.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/34.png?raw=true)
+
+- Kelas Login ini dirancang untuk menangani proses login pengguna dalam aplikasi Anda.
+- mycursor:
+  - Merupakan objek kursor yang kemungkinan terhubung ke database Anda.
+  - Objek kursor ini digunakan untuk menjalankan query ke database dan mengambil hasil.
+- users:
+  - Merupakan kamus (dictionary) kosong yang kemungkinan akan diisi dengan informasi pengguna yang valid.
+- Metode __init__ adalah konstruktor untuk kelas Login.
+- Konstruktor dipanggil ketika objek Login dibuat.
+- Konstruktor ini mengambil dua argumen:
+  - mycursor: Objek kursor yang terhubung ke database.
+  - users: Kamus kosong yang akan digunakan untuk menyimpan informasi pengguna.
+- Di dalam konstruktor, argumen mycursor disimpan ke atribut self.mycursor dan argumen users disimpan ke atribut self.users.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/35.png?raw=true)
+
+- Fungsi register() pada kelas Login dirancang untuk mendaftarkan pengguna baru ke dalam aplikasi
+- Fungsi register menerima dua argumen: username dan password.
+- Pertama, fungsi mencoba memeriksa apakah username yang diberikan sudah ada di kamus self.users menggunakan operator in.
+  - Jika username sudah ada, fungsi akan:
+  - Membangkitkan pengecualian ValueError dengan pesan "Username sudah ada. Silakan pilih username lain."
+  - Pernyataan raise akan menghentikan fungsi dan mengembalikan kontrol ke blok except.
+  - Jika username belum ada, fungsi akan beralih ke langkah selanjutnya.
+- Jika username belum ada, fungsi akan membuat entri baru di kamus self.users dengan kunci username dan nilai password.
+- Ini berarti informasi login pengguna (username dan password) disimpan dalam kamus self.users.
+- Fungsi kemudian mencetak pesan "Pendaftaran berhasil. Silakan login dengan akun baru Anda." untuk memberi tahu pengguna bahwa proses pendaftaran telah berhasil.
+- Jika username belum ada, fungsi akan membuat entri baru di kamus self.users dengan kunci username dan nilai password.
+- Ini berarti informasi login pengguna (username dan password) disimpan dalam kamus self.users.
+- Fungsi kemudian mencetak pesan "Pendaftaran berhasil. Silakan login dengan akun baru Anda." untuk memberi tahu pengguna bahwa proses pendaftaran telah berhasil.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/36.png?raw=true)
+
+- Fungsi login() pada kelas Login dirancang untuk mengotentikasi pengguna dan memberikan akses ke menu yang sesuai berdasarkan peran pengguna.
+- Fungsi login menerima dua argumen: username dan password.
+- Di dalam blok try, fungsi menggunakan objek self.mycursor untuk menjalankan query SQL berikut:
+  - SELECT * FROM admin WHERE \Nama_Admin` = '{username}' AND `Password_Admin` = '{password}'`
+- Query ini memilih semua data (*) dari tabel admin di mana kolom Nama_Admin sama dengan username yang diberikan dan kolom Password_Admin sama dengan password yang diberikan.
+- Hasil query disimpan dalam variabel admin.
+- Jika variabel admin berisi nilai (artinya query berhasil menemukan data yang cocok dengan username dan password yang diberikan), fungsi akan:
+  - Mencetak pesan "Login berhasil."
+  - Mengambil nilai dari kolom ke-5 hasil query (indeks 4 dalam Python) dan menyimpannya dalam variabel role. Nilai ini mewakili peran pengguna yang login.
+  - Memanggil fungsi menu yang sesuai berdasarkan nilai role:
+  - Jika role == "super admin database": Memanggil fungsi menu_utama_SUPER_ADMIN().
+  - Jika role == "perkotaan_database": Memanggil fungsi menu_utama_perkotaan().
+  - Jika role == "pemukiman_database": Memanggil fungsi menu_utama_pemukiman().
+  - Jika role == "pemukiman_database": Memanggil fungsi menu_utama_proyek().
+  - Jika role tidak sama dengan salah satu nilai yang valid, fungsi akan mencetak pesan "Role tidak valid."
+- Jika variabel admin kosong (artinya query tidak menemukan data yang cocok), fungsi akan:
+  - Memeriksa apakah username ada di kamus self.users.
+  - Jika username ada di kamus:
+  - Membandingkan nilai password yang diberikan dengan nilai password yang disimpan dalam kamus untuk username tersebut.
+  - Jika password cocok, fungsi akan:
+  - Mencetak pesan "Login berhasil."
+  - Memanggil fungsi menu_user().
+  - Jika password tidak cocok, fungsi akan:
+  - Membangkitkan pengecualian ValueError dengan pesan "Password pengguna salah. Silakan coba lagi."
+  - Jika username tidak ada di kamus, fungsi akan:
+  - Membangkitkan pengecualian ValueError dengan pesan "Username tidak ditemukan."
+- Blok except digunakan untuk menangkap pengecualian ValueError yang mungkin dibangkitkan dalam blok try.
+- Jika pengecualian ValueError tertangkap, fungsi akan mencetak pesan kesalahan yang terkait dengan pengecualian tersebut (dalam kasus ini, "Password pengguna salah. Silakan coba lagi." atau "Username tidak ditemukan.").
+- login: Ini adalah nama variabel yang akan menyimpan hasil dari sebuah pemanggilan fungsi. Kemungkinan besar variabel ini akan menyimpan jenis objek yang terkait dengan proses login.
+- Login(mycursor): Ini adalah pemanggilan fungsi.
+  - Login: Ini adalah nama fungsi yang dipanggil. Fungsi ini kemungkinan didefinisikan di bagian lain kode dan menangani logika login.
+  - mycursor: Ini adalah argumen yang dilewatkan ke fungsi Login. Berdasarkan namanya, kemungkinan besar ini adalah objek kursor basis data. Objek kursor ini mungkin digunakan oleh fungsi Login untuk berinteraksi dengan basis data untuk keperluan login.
+
+![alt text](https://github.com/MuhammadLuqmanSi/PA-B23-KELOMPOK-2/blob/master/37.png?raw=true)
+
+- Loop while True memastikan program berjalan terus menerus hingga pengguna memilih untuk keluar.
+- Pernyataan print membuat header menu, opsi, dan garis pemisah.
+- input("Pilih menu: ") meminta pengguna untuk memasukkan pilihan mereka.
+- if choice == "1":
+  - username = input("Masukkan username: ") meminta username pengguna.
+  - password = getpass.getpass("Masukkan password: ") meminta password dengan aman.
+  - login.login(username, password) memanggil fungsi login untuk mengotentikasi pengguna.
+- elif choice == "2":
+  - username = input("Masukkan username baru: ") meminta username baru.
+  - password = getpass.getpass("Masukkan password baru: ") meminta password baru dengan aman.
+  - login.register(username, password) memanggil fungsi register untuk membuat akun baru.
+- elif choice == "3":
+  - print("Terima kasih!") menampilkan pesan terima kasih.
+  - break keluar dari loop utama, mengakhiri program.
+- else:
+  - print("Pilihan tidak valid. Silakan pilih kembali.") menampilkan pesan kesalahan untuk pilihan yang tidak valid.
+- Blok try...except menangani potensi kesalahan selama input pengguna atau eksekusi program.
+- EOFError dan KeyboardInterrupt ditangkap masing-masing untuk akhir file dan interupsi keyboard.
+- print("Program keluar.") menampilkan pesan penutup.
+- break keluar dari loop utama, mengakhiri program.
+
+### Fitur dan Fungsionalitas
 
